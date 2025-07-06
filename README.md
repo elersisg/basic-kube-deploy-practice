@@ -13,28 +13,34 @@ This project contains Kubernetes manifests to deploy a WordPress site with **2 r
 ## How to deploy
 
 ### Start Minikube
-minikube start
 
+```
+minikube start
+```
 ### Clone the repo and acces the folder 
 
 
 ### Apply MySQL and WordPress
+```
 kubectl apply -f mysql-deployment.yaml
 kubectl apply -f wordpress-deployment.yaml
 kubectl apply -f wordpress-service.yaml
-
+```
 ### Access the WordPress site
+```
 minikube service wordpress
-
+```
 ### Verify the status 
+```
 kubectl get pods
 kubectl get svc
-
+```
 ### Stop without deleting
-
+```
 kubectl scale deployment wordpress --replicas=0
 kubectl scale deployment mysql --replicas=0
-
+```
 ### Or delete everything
-
+```
 kubectl delete -f .
+```
